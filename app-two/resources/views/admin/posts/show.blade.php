@@ -1,3 +1,9 @@
+@extends('admin.layouts.app')
+
+@section('title', 'Show')
+
+@section('content')
+
 <h1>Detalhes do post {{$post->title}}</h1>
 
 <ul>
@@ -10,3 +16,5 @@
     <input type="hidden" name="_method" value="DELETE">
     <button type="submit">Deletar {{$post->title}}</button>
 </form>
+
+@endsection

@@ -1,3 +1,9 @@
+@extends('admin.layouts.app')
+
+@section('title', 'List posts')
+
+@section('content')
+
 <a href="{{route('posts.create')}}">Criar novo post</a>
 <hr>
 @if (session('message'))
@@ -15,15 +21,17 @@
 @foreach ($posts as $post)
 <p>{{ $post->title }}
     [
-        <a href="{{ route('posts.show', $post->id)}}">Ver</a>
-        <a href="{{ route('posts.edit', $post->id)}}">Editar</a>
+    <a href="{{ route('posts.show', $post->id)}}">Ver</a>
+    <a href="{{ route('posts.edit', $post->id)}}">Editar</a>
     ]
 </p>
 @endforeach
 
 <hr>
 @if (isset($filters))
-    {{ $posts->appends($filters)->links() }}
+{{ $posts->appends($filters)->links() }}
 @else
-    {{ $posts->links() }}
+{{ $posts->links() }}
 @endif
+
+@endsection
